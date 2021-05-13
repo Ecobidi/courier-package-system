@@ -1,0 +1,65 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+    <h3 class="title text-white">Add New User</h3>
+  </div> 
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <form action="/users/new" method="POST" enctype="multipart/form-data">
+      <div>
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= error_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+
+      <fieldset class="border p-2 rounded row text-white">
+        <legend>Personal Details</legend>
+        <div class="form-group col-md-6">
+          <label>First Name: <strong class="text-danger">*</strong></label>
+          <input required type="text" class="form-control" name="first_name">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Last Name: <strong class="text-danger">*</strong></label>
+          <input required type="text" class="form-control" name="surname">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Profile Photo: </label>
+          <input type="file" name="photo" class="form-control">
+        </div>
+      </fieldset>
+      <fieldset class="border p-2 rounded row text-white">
+        <legend>Authentication Details</legend>
+        <div class="form-group col-md-4">
+          <label>Username: <strong class="text-danger">*</strong></label>
+          <input required type="text" class="form-control" name="username">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Password: <strong class="text-danger">*</strong></label>
+          <input required type="password" class="form-control" name="password" placeholder="*******">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Retype Password: <strong class="text-danger">*</strong></label>
+          <input required type="password" class="form-control" name="retype_password" placeholder="*******">
+        </div>
+        
+      </fieldset>
+      <div class="form-group mt-4">
+        <button class="btn btn-success form-control" type="submit">Create User</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</main>
+
+<%-include ("partials/bottom") %>

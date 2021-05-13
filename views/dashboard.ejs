@@ -1,0 +1,60 @@
+<%- include ('partials/top') %>
+    <div class="row space">
+
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/orders" class="card bg-white text-dark d-flex p-2 align-items-center">
+          <i class="fa fa-envelope-o icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= orders_count %></h4>
+            <p class="card-text">Orders</p>  
+          </div>
+        </a>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/stations" class="card bg-warning text-dark d-flex p-2 align-items-center">
+          <i class="fa fa-truck icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= stations_count %></h4>
+            <p class="card-text">Pickup Stations</p>  
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/customers" class="card bg-success text-white d-flex p-2 align-items-center">
+          <i class="fa fa-address-book icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= customers_count %></h4>
+            <p class="card-text">Customers</p>  
+          </div>
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/employees" class="card bg-danger text-white d-flex p-2 align-items-center">
+          <i class="fa fa-users icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= employees_count %></h4>
+            <p class="card-text">Employees</p>  
+          </div>
+        </a>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+        <a href="/users" class="card bg-info text-white d-flex p-2 align-items-center">
+          <i class="fa fa-user-circle icon" aria-hidden="true"></i>
+          <div class="d-inline-block text-center">
+            <h4 class="card-title display-4"><%= users_count %></h4>
+            <p class="card-text">Users</p>  
+          </div>
+        </a>
+      </div>
+    </div> 
+
+  </main>
+</div>
+
+</div>
+
+<%- include('partials/bottom') %>

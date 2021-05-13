@@ -1,0 +1,118 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+    <h3 class="title text-white">New Courier Order</h3>
+  </div> 
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <form action="/orders/new" method="POST">
+      <div>
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= error_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+
+      <fieldset class="border p-2 rounded row bg-white mt-4">
+        <legend class="text-danger bg-white">Sender Details</legend>
+        <div class="form-group col-md-4">
+          <label>Sender Name: <strong class="text-danger">*</strong></label>
+          <input required type="text" class="form-control" name="sender_name">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Sender Phone: <strong class="text-danger">*</strong></label>
+          <input type="tel" class="form-control" name="sender_phone">
+        </div>
+        <div class="form-group col-md-4">
+          <label>From City: <strong class="text-danger">*</strong></label>
+          <input required type="text" class="form-control" name="origin">
+        </div>
+      </fieldset>
+
+      <fieldset class="border p-2 rounded row bg-white mt-4">
+        <legend class="text-danger bg-white">Receiver Details</legend>
+        <div class="form-group col-md-4">
+          <label>Receiver Name: <strong class="text-danger">*</strong></label>
+          <input type="text" class="form-control" name="receiver_name">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Receiver Phone: <strong class="text-danger">*</strong></label>
+          <input type="tel" class="form-control" name="receiver_phone">
+        </div>
+        <div class="form-group col-md-4">
+          <label>Receiver Address: <strong class="text-danger">*</strong></label>
+          <input type="tel" class="form-control" name="receiver_address">
+        </div>
+        <div class="form-group col-md-4">
+          <label>To City (Destination): <strong class="text-danger">*</strong></label>
+          <input required type="text" class="form-control" name="destination">
+        </div>
+      </fieldset>
+
+      <fieldset class="border p-2 rounded row bg-white mt-4">
+        <legend class="text-danger bg-white">Package Details</legend>
+        <div class="form-group col-md-3">
+          <label>Order Tracking ID: <small class="text-danger font-weight-bold">Auto Generated</small></label>
+          <input required type="hidden" name="order_label" value='<%= order_label %>'>
+          <input class="form-control" disabled value='<%= order_label %>'>
+        </div>
+        <div class="form-group col-md-3">
+          <label>Type: <strong class="text-danger">*</strong></label>
+          <select required class="form-control" name="item_type">
+            <option></option>
+            <option value="Parcel">Parcel</option>
+            <option value="Breakable Item">Breakable Item</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Perishable Item">Perishable Item</option>
+            <option value="Others">Others</option>
+          </select>
+        </div>
+        <div class="form-group col-md-3">
+          <label>Weight (kg): <strong class="text-danger">*</strong></label>
+          <input required type="number" class="form-control" name="weight">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Length (cm): <strong class="text-danger">*</strong></label>
+          <input type="number" class="form-control" name="length">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Breadth (cm): <strong class="text-danger">*</strong></label>
+          <input type="number" class="form-control" name="breadth">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Height (cm): <strong class="text-danger">*</strong></label>
+          <input type="number" class="form-control" name="height">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Booking Date: <strong class="text-danger">*</strong></label>
+          <input type="date" class="form-control" name="booking_date" value="now()">
+        </div>
+        <div class="form-group col-md-3">
+          <label>Estimated Arrival Date: <strong class="text-danger">*</strong></label>
+          <input required type="date" class="form-control" name="scheduled_date">
+        </div>
+        <div class="form-grop col-md-4">
+          <label>Remark: </label>
+          <textarea class="form-control" name="remark"></textarea>
+        </div>
+      </fieldset>
+
+      <div class="form-group mt-4">
+        <button class="btn btn-success form-control" type="submit">Proceed</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</main>
+
+<%-include ("partials/bottom") %>

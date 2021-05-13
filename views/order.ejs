@@ -1,0 +1,78 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+    <h3 class="title text-white">Courier Details</h3>
+  </div> 
+</div>
+
+<div class="row text-primary">
+  <div class="col-6 list-group">
+    <div class="mb-2 list-group-item">
+      <span>From (Source): </span> <strong class="ml-2 badge badge-success text-white py-2"><%= order.origin %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Sender Name</span> <strong class="ml-2 badge badge-secondary text-white py-2"><%= order.sender_name %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Sender Phone</span> <strong class="ml-2"><%= order.sender_phone %></strong>
+    </div>
+  </div>
+  <div class="col-6 list-group">
+    <div class="mb-2 list-group-item">
+      <span>To (Destination): </span> <strong class="ml-2 badge badge-success text-white py-2"><%= order.destination %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Receiver Name</span> <strong class="ml-2 badge badge-secondary text-white py-2"><%= order.receiver_name %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Receiver Phone</span> <strong class="ml-2"><%= order.receiver_phone %></strong>
+    </div>
+  </div>
+  <div class="col-6 list-group">
+    <div class="mb-2 list-group-item">
+      <span>Order Tracking ID: </span> <strong class="ml-2 badge badge-info text-white p-2"><%= order.order_label %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Type: </span> <strong class="ml-2"><%= order.item_type %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Remark: </span> <strong class="ml-2"><%= order.remark %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Status</span> <strong class="ml-2 badge badge-primary text-white p-2"><%= order.status %></strong>
+    </div>
+  </div>
+  <div class="col-6 list-group">
+    <div class="mb-2 list-group-item">
+      <span>Booking Date: </span> <strong class="ml-2 badge badge-danger p-2 text-white"><%= order.booking_date %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Estimated Arrival Date</span> <strong class="ml-2 badge badge-danger p-2 text-white"><%= order.scheduled_date %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Last Known Locations</span> <strong class="ml-2 py-2 d-block"><%= order.locations.join(' -> ') %></strong>
+    </div>
+  </div>
+  <div class="col-6 list-group">
+    <div class="mb-2 list-group-item">
+      <span>Weight (kg): </span> <strong class="ml-2"><%= order.weight %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Height (cm): </span> <strong class="ml-2"><%= order.height %></strong>
+    </div>
+  </div>
+  <div class="col-6 list-group">
+    <div class="mb-2 list-group-item">
+      <span>Length (cm): </span> <strong class="ml-2"><%= order.length %></strong>
+    </div>
+    <div class="mb-2 list-group-item">
+      <span>Breadth (cm): </span> <strong class="ml-2"><%= order.receiver_phone %></strong>
+    </div>
+    
+  </div>
+  
+</div>
+
+</main>
+
+<%-include ("partials/bottom") %>

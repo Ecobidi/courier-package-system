@@ -1,0 +1,120 @@
+<%-include ("partials/top") %>
+<div class="row space">
+  <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+    <h3 class="title text-white">Update Courier Information</h3>
+  </div> 
+</div>
+
+<div class="row pt-2 text-white">
+  <div class="col-6">
+    <div class="mb-2">
+      <span>From (Source): </span> <strong class="ml-2"><%= order.origin %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Sender Name</span> <strong class="ml-2"><%= order.sender_name %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Sender Phone</span> <strong class="ml-2"><%= order.sender_phone %></strong>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-2">
+      <span>To (Destination): </span> <strong class="ml-2"><%= order.destination %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Receiver Name</span> <strong class="ml-2"><%= order.receiver_name %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Receiver Phone</span> <strong class="ml-2"><%= order.receiver_phone %></strong>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-2">
+      <span>Order Tracking ID: </span> <strong class="ml-2"><%= order.order_label %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Type: </span> <strong class="ml-2"><%= order.item_type %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Remark: </span> <strong class="ml-2"><%= order.remark %></strong>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-2">
+      <span>Weight (kg): </span> <strong class="ml-2"><%= order.weight %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Length (cm): </span> <strong class="ml-2"><%= order.length %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Breadth (cm): </span> <strong class="ml-2"><%= order.receiver_phone %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Height (cm): </span> <strong class="ml-2"><%= order.height %></strong>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="mb-2">
+      <span>Booking Date: </span> <strong class="ml-2"><%= order.booking_date %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Scheduled Date</span> <strong class="ml-2"><%= order.scheduled_date %></strong>
+    </div>
+    <div class="mb-2">
+      <span>Status</span> <strong class="ml-2"><%= order.status %></strong>
+    </div>
+  </div>
+
+  <div class="col-12 mt-4 text-dark">
+    <form action='<%= "/orders/update/" + order._id %>' method="POST">
+      <div>
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= error_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+
+      <fieldset class="border p-2 rounded row bg-white">
+        <legend class="text-danger bg-white">Update Order Location</legend>
+        <div class="form-group col-md-6">
+          <label class="font-weight-bold">Current / Nearest Courier Station: </label>
+          <select class="form-control" name="nearest_station">
+            <option value='' >-- Courier Stations --</option>
+            <% stations.forEach(s => { %>
+              <option value='<%= s.station_name %>'><%= s.station_name %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label class="font-weight-bold">Current Town: <strong class="text-danger">*</strong></label>
+          <input type="text" class="form-control" name="current_town">
+        </div>
+      </fieldset>
+
+      <fieldset class="border p-2 rounded row mt-2 bg-white">
+        <legend class="text-danger bg-white">Update Delivery Status</legend>
+        <div class="form-group col-12 d-flex justify-content-around">
+          <label class="font-weight-bold mx-2"><input type="radio" class="form-control" name="status" required value="In-Transit"> In-Transit</label>
+          <label class="font-weight-bold mx-2"><input type="radio" class="form-control" name="status" required value="Ready-For-Pickup"> Ready-For-Pickup</label>
+          <label class="font-weight-bold mx-2"><input type="radio" class="form-control" name="status" required value="Delivered"> Delivered</label>
+          <label class="font-weight-bold mx-2"><input type="radio" class="form-control" name="status" required value="Cancelled"> Cancelled</label>
+        </div>
+      </fieldset>
+
+      <div class="form-group mt-4">
+        <button class="btn btn-success form-control" type="submit">Update Order Information</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</main>
+
+<%-include ("partials/bottom") %>

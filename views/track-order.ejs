@@ -1,0 +1,34 @@
+<%- include ('partials/top') %>
+  <div class="row space"></div>
+
+  <div class="row space">
+    <div class="col-8 offset-2">
+      <div>
+        <% if (error_msg && error_msg.length > 0) { %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong><%= error_msg %></strong> 
+          </div>
+          <script>
+            $(".alert").alert();
+          </script>
+        <% } %>
+      </div>
+      <h4 class="font-weight-light text-center text-white mb-4">Enter Package Tracking Number</h4>
+      <form action="/orders/view" method="GET">
+        <div class="form-group">
+          <input required name="tracking_id" type="text" class="form-control py-4">
+        </div>
+        <div class="form-group w-100 p-4 d-flex justify-content-center">
+          <input type="submit" class="btn btn-info" value="Proceed">
+        </div>
+      </form>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
+
+<%- include ('partials/bottom') %>

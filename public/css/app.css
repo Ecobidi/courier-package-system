@@ -1,0 +1,102 @@
+#branding {
+  width: 72px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px dotted white;
+  font-family: cursive;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.table-top {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.table-thumbnail {
+  width: 72px; 
+  height: 92px; 
+  border-radius: 12px;
+}
+
+.profile-photo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+}
+
+body {
+  background-image: url(/images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+main {
+  background-color: #292828c7;
+}
+
+.login-page-design {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 350px;
+  width: 250px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  z-index: 1;
+}
+
+
+.table row:nth-child((odd)) {
+  background-color: #c1c1c1;
+}
+
+img {
+  width: 100%;
+}
+
+.space {
+  padding: 2.5em 0 2.5em 0;
+}
+
+.sidenav {
+  background-color: #cccccc;
+}
+
+.sidenav .list-group-item {
+  cursor: pointer;
+}
+
+.user-img-circle-md {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.underline {
+  border-bottom: 2px solid #fff;
+}
+
+.table-stripped tbody tr:nth-of-type(odd) {
+  background-color:red !important;
+}
+
+.book-thumbnail {
+  width: 120px;
+  height: 180px;
+}
+
+.icon {
+  font-size: 65px;
+}
+
+.light-background {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.grid-item p {
+  margin-bottom: 0;
+}

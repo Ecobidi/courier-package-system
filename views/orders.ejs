@@ -1,0 +1,60 @@
+<%- include ('partials/top') %>
+  <div class="row space">
+    <div class="col-12 d-flex justify-content-between align-items-center underline pb-2">
+      <h3 class="title text-white">Courier Orders</h3>
+      <div>
+        <a href="/orders/new" class="btn btn-primary">Add New Order</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row space">
+    
+    <div class="col-12">
+      <h4 class="font-weight-light text-center text-white bg-primary p-2 m-0 table-top">List of Orders</h4>
+      <table class="table table-bordered table-striped">
+        <thead class="text-white font-weight-bold">
+          <tr>
+            <td>Order Label</td>
+            <td>From</td>
+            <td>To</td>
+            <td>Type</td>
+            <td>Weight (kg)</td>
+            <td>Date Placed</td>
+            <td>Scheduled Date</td>
+            <td>Last Know Location</td>
+            <td>Delivery Status</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody class="text-white">
+          <% orders.forEach((m) => { %>
+            <tr>
+              <td><small><%= m.order_label %></small></td>
+              <td><small><%= m.origin %></small></td>
+              <td><small><%= m.destination %></small></td>
+              <td><small><%= m.item_type %></small></td>
+              <td class="text-right"><small><%= m.weight %></small></td>
+              <td><small><%= m.booking_date %></small></td>
+              <td><small><%= m.scheduled_date %></small></td>
+              <td><small><%= m.locations.pop() %></small></td>
+              <td><small class="badge badge-pill badge-success p-2"><%= m.status %></small></td>
+              <td>
+                <% if (m.status != 'Cancelled' || m.status != 'Delivered') { %>
+                  <a href='<%= "/orders/update/" + m._id %>' class="btn btn-sm btn-success mb-1">Update Status</a> <br>
+                <% } %>
+                <a href='<%= "/orders/view?order_id=" + m._id %>' class="btn btn-sm btn-info">View</a>
+                <a href='<%= "/orders/remove/" + m._id %>' class="btn btn-sm btn-danger">Remove</a>
+                
+              </td>
+            </tr>
+          <% }) %>          
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</div>
+</div> 
+
+<%- include ('partials/bottom') %>

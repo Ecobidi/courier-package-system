@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <style>
+    .bg-primary, .btn-primary {
+      background-color: #c9224b !important;
+    }
+    .btn-primary {
+      border-color: transparent;
+    }
+    .text-primary {
+      color: #c9224b !important;
+    }
+  </style>
+  <title><%= appname %></title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <aside class="p-0 col-lg-2 sidenav bg-primary text-white" style="min-height: 100vh;">
+        <div class="d-flex align-items-center my-2 mb-4 p-2 pb-3 border-bottom">
+          <div class="mr-2">
+            <img class="profile-photo" src='<%= "/images/" + user.photo  %>'>
+          </div>
+          <div class="ml-2">
+            <span class="font-weight-light">Welcome, </span><br>
+            <p class="title mb-0 pb-0"><%= user.username  %></p>
+          </div>
+        </div>
+        
+        <ul class="list-group py-2 px-2">
+          <a href="/" class="list-group-item mb-2 bg-white text-black">
+            <i class="fa fa-dashboard" aria-hidden="true"></i> 
+            <span>Dashboard</span>
+          </a>
+          <a href="/orders" class="list-group-item mb-2 bg-success text-white">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Orders</span>
+          </a>
+          <a href="/stations" class="list-group-item mb-2 bg-info text-white">
+            <i class="fa fa-truck" aria-hidden="true"></i> <span>Pickup Stations</span>
+          </a>
+          <a href="/orders/track-order" class="list-group-item mb-2 bg-white text-black">
+            <i class="fa fa-road" aria-hidden="true"></i> <span>Track Order</span>
+          </a>
+          <a href="/customers" class="list-group-item mb-2 bg-success text-white">
+            <i class="fa fa-address-book" aria-hidden="true"></i> <span>Customers</span>
+          </a>
+          <a href="/employees" class="list-group-item mb-2 bg-info text-white">
+            <i class="fa fa-users" aria-hidden="true"></i> <span>Employees</span>
+          </a>
+          <a href="/users" class="list-group-item mb-2 bg-secondary text-white">
+            <i class="fa fa-user-circle" aria-hidden="true"></i> <span>Users</span>
+          </a>
+          <a href="/logout" class="list-group-item mb-2 bg-dark text-white">
+            <i class="fa fa-sign-out" aria-hidden="true"></i> <span>Logout</span>
+          </a>
+        </ul>
+        
+      </aside>
+
+      <main class="col-lg-10">
+        <nav class="navbar navbar-expand-sm bg-primary text-white py-0" style="border-left: 1px solid #fff;">
+          <div class="navbar-brand" href="#">
+            <!-- <img class="img img-responsive" src="/images/logo.jpg" style="height: 64px; width: 64px; border-radius: 50%;"> -->
+            <i class="fa fa-shopping-bag text-white" aria-hidden="true" style="font-size: 3.6rem;"></i>
+          </div>
+          <h4 class="font-weight-normal app-title"><%= appname %>
+          </h4>
+        </nav>
